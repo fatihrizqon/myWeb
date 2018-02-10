@@ -1,12 +1,17 @@
 <?php
 /*Routing*/
 
+/*Controllers*/
 use App\Controllers\ExampleController;
+use App\Controllers\HomeController;
+
+/*Models*/
 use App\Models\Example;
+use App\Models\User;
 
 
 /*Index Route*/
-$app->get('/', function($request, $response){
+$app->get('/', HomeController::class.':index', function($request, $response){
   // CSRF token name and value
   $nameKey = $this->csrf->getTokenNameKey();
   $valueKey = $this->csrf->getTokenValueKey();
